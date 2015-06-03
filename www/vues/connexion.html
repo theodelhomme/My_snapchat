@@ -1,0 +1,15 @@
+<ion-view view-title="Connexion">
+  <ion-content ng-controller="LoginController" class="has-header">
+    <label class="item item-input">
+      <input type="email" ng-model="email" placeholder="Email">
+    </label>
+    <label class="item item-input">
+      <input type="password" ng-model="password" placeholder="Mot de passe">
+    </label>
+    <button class="button button-block button-royal" ng-click="login()">
+      Me connecter
+    </button>
+    {{erreur}}
+      <a href="#/inscription">S'inscrire</a>
+  </ion-content>
+</ion-view>
