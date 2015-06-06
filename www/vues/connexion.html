@@ -1,5 +1,8 @@
 <ion-view view-title="Connexion">
   <ion-content ng-controller="LoginController" class="has-header">
+    <div class="item item-image">
+      <img src="img/mysnapchathome.jpg">
+    </div>
     <label class="item item-input">
       <input type="email" ng-model="email" placeholder="Email">
     </label>
@@ -10,6 +13,6 @@
       Me connecter
     </button>
     {{erreur}}
-      <a href="#/inscription">S'inscrire</a>
+    <a href="#/inscription">S'inscrire</a>
   </ion-content>
 </ion-view>

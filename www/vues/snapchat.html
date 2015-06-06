@@ -1,0 +1,25 @@
+<ion-view view-title="Snapchat" >    
+  <ion-content ng-controller="FriendController" class="has-header">
+    <a class="item item-icon-left" href="#">
+      <i class="icon ion-person-stalker"></i>
+      Friends
+      <span class="badge badge-assertive">{{friends}}</span>
+    </a>
+    <div class="list list-inset">
+      <div class="item" ng-repeat="u in username">
+       {{u.username}} 
+      </div>
+    </div>
+  </ion-content>
+  <div class="tabs tabs-icon-only" ng-controller="SnapController">
+    <a class="tab-item">
+      <i class="icon ion-home"></i>
+    </a>
+    <a class="tab-item">
+      <i class="icon ion-camera" ng-click="snap()"></i>
+    </a>
+    <a class="tab-item">
+      <i class="icon ion-gear-a"></i>
+    </a>
+  </div>
+</ion-view>  
