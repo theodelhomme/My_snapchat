@@ -82,3 +82,7 @@ MERGED from android:CordovaLib:unspecified:debug:25:5
 		ADDED from AndroidManifest.xml:15:42
 	android:minSdkVersion
 		ADDED from AndroidManifest.xml:15:15
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from AndroidManifest.xml:16:5
+	android:name
+		ADDED from AndroidManifest.xml:16:22

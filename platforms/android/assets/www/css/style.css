@@ -1,1 +1,7 @@
 /* Empty. Add your own CSS if you like */
+.has-header{
+	top:7%;
+}
+#snap{
+	float: right;
+}

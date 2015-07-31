@@ -17,3 +17,5 @@ angular.module('starter', ['ionic'])
     }
   });
 })
+
+var app = angular.module('start', ['ionic']);

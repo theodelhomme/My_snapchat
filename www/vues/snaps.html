@@ -1,13 +1,13 @@
-<ion-view view-title="Snapchat" >    
-  <ion-content ng-controller="FriendController" class="has-header">
+<ion-view view-title="Snaps" >    
+  <ion-content ng-controller="SnapController" class="has-header">
     <a class="item item-icon-left" href="#">
       <i class="icon ion-person-stalker"></i>
-      Friends
-      <span class="badge badge-assertive">{{friends}}</span>
+      Snaps
+      <span class="badge badge-assertive">{{snaps}}</span>
     </a>
     <div class="list list-inset">
-      <div class="item" ng-repeat="u in username">
-       {{u.username}} 
+      <div class="item" ng-repeat="i in image">
+       {{i.image}} 
       </div>
     </div>
   </ion-content>
