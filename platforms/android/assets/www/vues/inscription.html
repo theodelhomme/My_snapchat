@@ -1,0 +1,16 @@
+<ion-view view-title="Inscription">    
+  <ion-content ng-controller="UserController" class="has-header">
+    <div class="item item-image">
+      <img src="img/mysnapchathome.jpg">
+    </div>
+    <label class="item item-input">
+      <input type="email" ng-model="email" placeholder="Email">
+    </label>
+    <label class="item item-input">
+      <input type="password" ng-model="password" placeholder="Mot de passe">
+    </label>
+    <button class="button button-block button-assertive" ng-click="register()">
+      M'inscrire
+    </button>
+  </ion-content>
+</ion-view>  
