@@ -1,8 +1,5 @@
-/*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, maxerr: 50 */
-/*global define */
 var angular;
 var error;
-var navigator;
 (function () {
     "use strict";
     var app = angular.module('mysnapchat', ['ionic']);
@@ -21,7 +18,6 @@ var navigator;
         $scope.login = function () {
             $http.post('http://remikel.fr/api.php?option=connexion', {'password' : $scope.password, 'email' : $scope.email}).
                 success(function (data) {
-                    console.log(data);
                     $window.localStorage.token = data.token;
                     $window.localStorage.email = $scope.email;
                     if (data.error !== false) {
@@ -30,65 +26,44 @@ var navigator;
                         $location.path('/snapchat');
                     }
                 }).
-                error(function (data) {
-                    $scope.truc = data.error;
-                });
+            error(function (data) {
+                $scope.truc = data.error;
+            });
         };
     });
-    app.controller('FriendController', function ($scope, $http, $window) {
+    app.controller('FriendController', function ($scope, $http, $window, Camera) {
         $http.post('http://remikel.fr/api.php?option=toutlemonde', {'token' : $window.localStorage.token, 'email' : $window.localStorage.email}).
             success(function (data) {
+                console.log(data);
                 $scope.username = data.data;
                 $scope.friends = data.data.length;
             }).
             error(function (data) {
                 $scope.truc = data.error;
-            });
+            });   
     });
     app.factory('Camera', ['$q', function ($q) {
-        return {
-            getPicture: function (options) {
-                var q = $q.defer();
-                navigator.camera.getPicture(function (result) {
-                    q.resolve(result);
-                }, function (err) {
-                    q.reject(err);
-                }, options);
-                return q.promise;
-            }
-        };
+      return {
+        getPicture: function(options) {
+          var q = $q.defer();
+          navigator.camera.getPicture(function (result) {
+            q.resolve(result);
+          }, function (err) {
+            q.reject(err);
+          }, options);
+          return q.promise;
+        }
+      }
     }]);
-    app.controller('SnapController', function ($scope, $http, $window, $location, Camera) {
-        $scope.snap = function () {
-            Camera.getPicture().then(function (imageURI) {
-                console.log(imageURI);
-            }, function (err) {
-                console.err(err);
-            });
-            $http.post('http://remikel.fr/api.php?option=image', {'token' : $window.localStorage.token, 'email' : $window.localStorage.email}).
-                success(function (data) {
-                }).
-                error(function (data) {
-                    $scope.truc = data.error;
-                });
-        };
-        $scope.newsnap = function () {    
-            $http.post('http://remikel.fr/api.php?option=newsnap', {'token' : $window.localStorage.token, 'email' : $window.localStorage.email}).
-                success(function (data) {
-                    console.log(data);
-                    $scope.username = data.data;
-                    $scope.snaps = data.data.length;
-                    $scope.image = data.url;
-                    if (data.error !== false) {
-                        $scope.erreur = data.error;
-                    } else {
-                        $location.path('/snaps');
-                    }
-                }).
-                error(function (data) {
-                    $scope.truc = data.error;
-                });  
-        };          
+    app.controller('SnapController', function ($scope, Camera) {
+      $scope.snap = function() {
+        console.log("ok");
+        Camera.getPicture().then(function (imageURI) {
+          console.log(imageURI);
+        }, function(err) {
+          console.err(err);
+        });
+      };
     });
     app.config(function ($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise('/');
@@ -109,9 +84,5 @@ var navigator;
                 url: '/connexion',
                 templateUrl: 'vues/connexion.html'
             });
-            /*.state('snap', {
-                url: '/snaps',
-                templateUrl: 'vues/snaps.html'
-            });*/
     });
 }());

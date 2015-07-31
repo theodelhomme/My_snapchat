@@ -2,11 +2,11 @@
 <items version="2" >
 
     <item
-        jar="C:\wamp\www\My_snapchat\platforms\android\build\intermediates\exploded-aar\android\CordovaLib\unspecified\debug\classes.jar"
+        jar="C:\wamp\www\My_snapchat\My_snapchat\platforms\android\build\intermediates\exploded-aar\android\CordovaLib\unspecified\debug\classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="6c730395c1d9e261e9f2d06017d37bdcd4c82500">
-        <dex dex="C:\wamp\www\My_snapchat\platforms\android\build\intermediates\pre-dexed\debug\classes-cbe3974b5b64c9164f02530353b68fa2f0a5624e.jar" />
+        sha1="3e56cf771ef2ce231d5a549fa034925a080c8282">
+        <dex dex="C:\wamp\www\My_snapchat\My_snapchat\platforms\android\build\intermediates\pre-dexed\debug\classes-2f10830e9d2465e6a82fdd4afeed4dd7de983502.jar" />
     </item>
 
 </items>
